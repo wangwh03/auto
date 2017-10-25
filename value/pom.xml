@@ -47,13 +47,17 @@
       <id>jitpack.io</id>
       <url>https://jitpack.io</url>
     </repository>
+    <repository>
+      <id>incap.bintray</id>
+      <url>https://bintray.com/incap/incap</url>
+    </repository>
   </repositories>
 
   <dependencies>
     <dependency>
-      <groupId>com.github.gradle.incap</groupId>
+      <groupId>org.gradle.incap</groupId>
       <artifactId>incap-ap-client</artifactId>
-      <version>master-SNAPSHOT</version>
+      <version>0.0.2</version>
     </dependency>
     <dependency>
       <groupId>com.google.auto</groupId>
@@ -187,6 +191,14 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>bintray-incap-auto-value</id>
+      <name>Incap-auto-value</name>
+      <url>https://api.bintray.com/maven/incap/auto-value/value/;publish=1</url>
+    </repository>
+  </distributionManagement>
+
   <profiles>
     <profile>
       <id>disable-java8-doclint</id>

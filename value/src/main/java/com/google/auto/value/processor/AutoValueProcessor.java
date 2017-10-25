@@ -1172,7 +1172,7 @@ public class AutoValueProcessor extends BaseIncrementalAnnotationProcessor {
   private void writeSourceFile(String className, String text, TypeElement originatingType) {
     try {
       JavaFileObject sourceFile =
-          getFiler().createSourceFile(className, originatingType);
+          incrementalProcessingEnvironment.getFiler().createSourceFile(className, originatingType);
       try (Writer writer = sourceFile.openWriter()) {
         writer.write(text);
       }
