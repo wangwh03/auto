@@ -14,8 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -26,7 +25,7 @@
 
   <groupId>com.google.auto.value</groupId>
   <artifactId>auto-value</artifactId>
-  <version>1.5-incap-1-SNAPSHOT</version>
+  <version>1.5-incap-2-SNAPSHOT</version>
   <name>AutoValue</name>
   <description>
     Immutable value-type code generation for Java 1.6+.
@@ -39,7 +38,7 @@
     <url>http://github.com/google/auto</url>
     <connection>scm:git:git://github.com/google/auto.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/google/auto.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>auto-value-1.5-incap-1</tag>
   </scm>
 
   <repositories>
@@ -189,13 +188,22 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+          <useReleaseProfile>false</useReleaseProfile>
+          <releaseProfiles>release</releaseProfiles>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <distributionManagement>
     <repository>
       <id>bintray-incap-auto-value</id>
       <name>Incap-auto-value</name>
-      <url>https://api.bintray.com/maven/incap/auto-value/value/;publish=1</url>
+      <url>https://api.bintray.com/maven/incap/auto-value/value</url>
     </repository>
   </distributionManagement>
 
