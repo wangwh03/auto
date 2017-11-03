@@ -25,7 +25,7 @@
 
   <groupId>com.google.auto.value</groupId>
   <artifactId>auto-value</artifactId>
-  <version>1.5-incap-4-SNAPSHOT</version>
+  <version>1.5-incap-4</version>
   <name>AutoValue</name>
   <description>
     Immutable value-type code generation for Java 1.6+.
@@ -56,7 +56,7 @@
     <dependency>
       <groupId>org.gradle.incap</groupId>
       <artifactId>incap-ap-client</artifactId>
-      <version>0.0.2</version>
+      <version>0.0.4</version>
     </dependency>
     <dependency>
       <groupId>com.google.auto</groupId>
