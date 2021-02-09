@@ -15,21 +15,21 @@
  */
 package com.google.auto.value.processor;
 
-import static com.google.auto.common.MoreElements.isAnnotationPresent;
-
 import com.google.auto.common.MoreElements;
 import com.google.auto.common.SuperficialValidation;
 import com.google.auto.service.AutoService;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSet;
 import java.util.Set;
-import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
+import org.gradle.incap.BaseIncrementalAnnotationProcessor;
+
+import static com.google.auto.common.MoreElements.isAnnotationPresent;
 
 /**
  * Annotation processor that checks that the type that {@link AutoValue.Builder} is applied to is
@@ -39,7 +39,7 @@ import javax.tools.Diagnostic;
  * @author Éamonn McManus
  */
 @AutoService(Processor.class)
-public class AutoValueBuilderProcessor extends AbstractProcessor {
+public class AutoValueBuilderProcessor extends BaseIncrementalAnnotationProcessor {
   @Override
   public Set<String> getSupportedAnnotationTypes() {
     return ImmutableSet.of(AutoValue.Builder.class.getCanonicalName());
@@ -51,7 +51,7 @@ public class AutoValueBuilderProcessor extends AbstractProcessor {
   }
 
   @Override
-  public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
+  public boolean incrementalProcess(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
     Set<? extends Element> builderTypes =
         roundEnv.getElementsAnnotatedWith(AutoValue.Builder.class);
     if (!SuperficialValidation.validateElements(builderTypes)) {
